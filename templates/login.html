@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dj PET</title>        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="py.ico"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <style>
+            body{        
+                color: white; 
+                font-weight: bold;                
+                background-image: url("https://www.vedovatipisos.com.br/wp-content/uploads/2015/12/ra%C3%A7as-de-cachorro.jpg");
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container mt-4">
+            <form action="submit" method="POST">{% csrf_token %}
+                <div style="margin-left:35%; margin-top:10%">
+                    <div class="col-4">
+                        <h2 class="text-center">DJ PET</h2>
+                        
+                        <!-- Entrada do e-mail -->
+                        <div class="form-group">
+                            <label for="username">Usuário</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="E-mail" size="10" required autocomplete="off">
+                        </div>
+                        
+                        <!-- Entrada da Senha -->
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required autocomplete="off">
+                        </div>
+
+                        <!-- Botão Submit -->
+                        <div>
+                            <!-- Caso o usuário e senha estejam erradas ele exibirá a mensagem abaixo -->
+                            {% for message in messages %}
+                                <div class="alert alert-danger">
+                                    <strong>Error!</strong> Indicates a successful or positive action. {{ message }}
+                                </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-success">Entrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
